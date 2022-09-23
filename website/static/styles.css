@@ -1,0 +1,31 @@
+header {
+    text-align: center;
+}
+
+.animal-table {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+.animal-table th {
+    padding: 10px;
+    font-size: x-large;
+    line-height: 2em;
+    border: solid;
+}
+
+.form {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+.form input {
+    margin: 10px;
+
+}

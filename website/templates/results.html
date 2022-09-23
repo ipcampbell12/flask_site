@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %} Results Page {% endblock %}
+
+{% block content %}
+
+<table class="animal-table">
+    <h1>Favorite Animals:</h1>
+    <tr>
+        <th>Animal</th>
+        <th>Created</th>
+        <th>Action</th>
+    </tr>
+    <br>
+    {% for animal in animals %}
+    <tr>
+        <td>{{animal.name}}</td>
+        <td>{{animal.created.date()}}</td>
+        <td>
+            <a href="/delete/{{animal.id}}">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<br>
+<br>
+<form class="form" action="/results" method="GET">
+    <button> <a href="/delete_all" class="btn"> Clear Contents</a></button>
+</form>
+<br>
+<form class="form" action="/" method="GET">
+    <button> Add More Animals</button>
+</form>
+
+<!-- <a href="{{url_for('views.modal')}}" class="btn btn-outline-success"> Clear List</a>
+<br>
+<br>
+<br>
+ -->
+
+{% endblock %}

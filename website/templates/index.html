@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %} Enter Animal Page {% endblock %}
+
+{% block content %}
+<h1>Animal App</h1>
+<h3>What's your favorite animal?</h3>
+<form class="form" action="/" method="POST">
+    <input type="text" name="animal" id='animal' class="forml">
+    <br>
+    <br>
+    <input type="submit" value="Add Animal" class="btn btn-primary">
+</form>
+{% with messages = get_flashed_messages(with_categories=true) %}
+
+{% if messages %}
+{% for category, message in messages %}
+{% if category == 'success' %}
+<div class='alert alert-success alter-dismissible fade show' role='alert'>
+    {{ message }}
+    <button type="close" class="close" data-dismiss="alert">
+        <span aria-hidden="ture">&times;</span>
+    </button>
+</div>
+
+{% else %}
+<div class='alert alert-danger alter-dismissible fade show' role='alert'>
+    {{ message }}
+    <button type="close" class="close" data-dismiss="alert">
+        <span aria-hidden="ture">&times;</span>
+    </button>
+
+</div>
+{% endif %}
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<form class='form-group' action='/results' method="GET">
+    <button class="btn btn-secondary"> See Results</button>
+</form>
+
+<!--{% for picture in pictures %}-->
+<div id="picture-output">
+    <h1>Where's my picture?</h1>
+    <!-- <img src="{{ picture }}" alt="Where's my supersuit?">-->
+</div>
+<!--{% endfor %}-->
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %} Delete Confirmation {% endblock %}
+
+{% block content %}
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <form class="form" action="/results" method="GET">
+                <button> <a href="/delete_all"> Yes</a></button>
+            </form>
+        </div>
+    </div>
+    <div class="modal_footer">
+        <a href="{{url_for('views.results)}}" class="btn btn-secondary">No</a>
+    </div>
+</div>
+
+{% endblock %}
+{% block script %}
+<script>
+    $(document).ready(function () {
+        console.log('Window is ready')
+        $("#exampleModal").modal("show")
+    })
+</script>
+{% endblock %}

@@ -1,14 +1,14 @@
 from flask import Blueprint, render_template, request, flash, redirect
 from .models import Animal
 from . import db
-from .images import get_images_from_google, wd
+#from .images import get_images_from_google, wd
 
 views = Blueprint('views', __name__)
 
 
 @views.route('/', methods=["POST", "GET"])
 def index():
-    pictures = []
+    # pictures = []
     if request.method == "POST":
         favorite = request.form.get('animal') or None
         if Animal.find_by_name(favorite.strip()) is not None or Animal.find_by_name(favorite.lower()) is not None:
@@ -24,12 +24,12 @@ def index():
                 db.session.commit()
                 flash(
                     'You lovely humanbeing! Your animal has been added to the database!', category='success')
-                pictures.append(get_images_from_google(wd, 1))
-                for url in pictures:
-                    print(url)
-                return redirect('/')
+                # pictures.append(get_images_from_google(wd, 1))
+                # for url in pictures:
+                #     print(url)
+                # return redirect('/')
 
-    return render_template('index.html', pictures=pictures)
+    return render_template('index.html')
 
 
 @views.route('/results', methods=["POST", "GET"])
